@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#28765c">
+  <title>あんこ配合計算</title>
+  <link rel="stylesheet" href="style.css">
+  <script src="app.js" defer></script>
+  <link rel="manifest" href="./manifest.json">
+</head>
+<body>
+  <main class="app">
+    <h1>あんこ配合計算</h1>
+    <p class="description">風袋とあんこの種類を選んで重量を入力</p>
+
+<div class="tabs" role="tablist" aria-label="計算タブ">
+  <button
+    type="button"
+    id="tab-a"
+    class="tab-button active"
+    role="tab"
+    aria-selected="true"
+  >Aタブ</button>
+
+  <button
+    type="button"
+    id="tab-b"
+    class="tab-button"
+    role="tab"
+    aria-selected="false"
+  >Bタブ</button>
+</div>
+
+    <section>
+      <h2>① 風袋を選ぶ</h2>
+      <div id="tare-options" class="options">
+        <button type="button" data-tare="1400">1.4 kg</button>
+        <button type="button" data-tare="1700">1.7 kg</button>
+        <button type="button" data-tare="2000">2.0 kg</button>
+        <button type="button" data-tare="" disabled>未設定</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>② 生あん袋（900g）</h2>
+      <div id="bag-options" class="options">
+        <button type="button" data-bag="0">なし</button>
+        <button type="button" data-bag="900">あり</button>
+      </div>
+    </section>
+
+    <section>
+      <h2>③ あんこの種類</h2>
+<div id="bean-options" class="options">
+  <button type="button" data-bean="nami" data-rate="65">並あん<br>65%</button>
+  <button type="button" data-bean="55an" data-rate="55">55あん<br>55%</button>
+  <button type="button" data-bean="shiroazuki" data-rate="60">白小豆<br>60%</button>
+  <button type="button" data-bean="tenbyo" data-rate="60">手亡<br>60%</button>
+  <button type="button" data-bean="daifuku" data-rate="60">大福<br>60%</button>
+</div>
+    </section>
+
+    <section>
+    <h2>④ 風袋込みの総重量（g）</h2>
+    <input
+    id="gross-weight"
+    type="number"
+    inputmode="decimal"
+    min="0"
+    step="any"
+    placeholder="例：10000"
+>
+<p class="input-kg">
+  kg換算：<strong id="gross-kg">---</strong>
+</p>
+    </section>
+
+<section class="results">
+  <h2>計算結果</h2>
+
+  <p>
+    あんこの実重量
+    <strong>
+      <span id="net-result">---</span>
+      <small id="net-kg"></small>
+    </strong>
+  </p>
+
+  <p>
+    ザラメ
+    <strong>
+      <span id="sugar-result">---</span>
+      <small id="sugar-kg"></small>
+    </strong>
+  </p>
+
+  <p>
+    水（35%）
+    <strong>
+      <span id="water-result">---</span>
+      <small id="water-kg"></small>
+    </strong>
+  </p>
+
+  <p class="total">
+    合計
+    <strong>
+      <span id="total-result">---</span>
+      <small id="total-kg"></small>
+    </strong>
+  </p>
+
+  <p id="error-message" class="error" role="status"></p>
+</section>
+  </main>
+
+  <script>
+  if ("serviceWorker" in navigator) {
+    window.addEventListener("load", () => {
+      navigator.serviceWorker.register("./sw.js")
+        .catch((error) => {
+          console.error("Service Workerの登録に失敗:", error);
+        });
+    });
+  }
+</script>
+</body>
+</html>
