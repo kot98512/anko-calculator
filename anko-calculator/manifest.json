@@ -1,0 +1,19 @@
+{
+  "name": "あんこ配合計算",
+  "short_name": "あんこ計算",
+  "description": "和菓子製造用あんこ配合計算アプリ",
+  "start_url": "./index.html",
+  "scope": "./",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#f4f6f4",
+  "theme_color": "#28765c",
+  "icons": [
+    {
+      "src": "./icons/icon-512.png",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any"
+    }
+  ]
+}
