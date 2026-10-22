@@ -214,7 +214,8 @@ input:focus {
   max-width: 100px;
   height: 64px;
   object-fit: contain;
-  image-rendering: pixelated;
+  image-rendering: auto;
+  flex-shrink: 0;
 }
 
 #tare-options button span {
