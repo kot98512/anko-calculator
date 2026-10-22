@@ -1,4 +1,4 @@
-const CACHE_NAME = "anko-calculator-v1";
+const CACHE_NAME = "anko-calculator-v2";
 
 const FILES_TO_CACHE = [
   "./",
@@ -6,7 +6,10 @@ const FILES_TO_CACHE = [
   "./style.css",
   "./app.js",
   "./manifest.json",
-  "./icons/icon-512.png"
+  "./icons/icon-1.4kg.png",
+  "./icons/icon-1.35kg.png",
+  "./icons/icon-1.7kg.png",
+  "./icons/icon-2kg.png"
 ];
 
 self.addEventListener("install", (event) => {
@@ -15,6 +18,7 @@ self.addEventListener("install", (event) => {
       return cache.addAll(FILES_TO_CACHE);
     })
   );
+
   self.skipWaiting();
 });
 
@@ -28,6 +32,7 @@ self.addEventListener("activate", (event) => {
       )
     )
   );
+
   self.clients.claim();
 });
 

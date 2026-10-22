@@ -196,3 +196,28 @@ input:focus {
   color: var(--green);
   font-size: 17px;
 }
+
+/* 風袋選択ボタンの画像 */
+#tare-options button {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  min-height: 110px;
+  padding: 10px 6px;
+}
+
+.tare-icon {
+  display: block;
+  width: 100%;
+  max-width: 100px;
+  height: 64px;
+  object-fit: contain;
+  image-rendering: pixelated;
+}
+
+#tare-options button span {
+  font-size: 15px;
+  font-weight: 700;
+}

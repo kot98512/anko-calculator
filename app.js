@@ -218,3 +218,16 @@ function clearResults() {
 // 最初の表示
 updateButtons();
 calculate();
+
+
+if ("serviceWorker" in navigator) {
+  window.addEventListener("load", () => {
+    navigator.serviceWorker.register("./sw.js")
+      .then(() => {
+        console.log("オフライン対応の準備ができました");
+      })
+      .catch((error) => {
+        console.error("サービスワーカーの登録に失敗しました:", error);
+      });
+  });
+}
